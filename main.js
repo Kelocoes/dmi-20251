@@ -128,8 +128,137 @@
 // console.log(obj1.name); // Bob
 // console.log(obj2.name); // Bob
 
-let word = ["H", "e", "l", "l", "o"];
-word[10] = "!";
-console.log(word); // ["H", "e", "l", "l", "o", empty x 5, "!"]
-word[2] = "!";
-console.log(word); // ["H", "e", "!", "l", "o", empty x 5, "!"]
+// let word = ["H", "e", "l", "l", "o"];
+// word[10] = "!";
+// console.log(word); // ["H", "e", "l", "l", "o", empty x 5, "!"]
+// word[2] = "!";
+// console.log(word); // ["H", "e", "!", "l", "o", empty x 5, "!"]
+
+
+// Flow control structures
+// let age = 18;
+
+// if (age >= 18) {
+//     console.log("You are an adult.");
+// } else {
+//     console.log("You are a minor.");
+// }
+
+// let color = "red";
+
+// switch (color) {
+//     case "red":
+//         console.log("Stop");
+//         break;
+//     case "yellow":
+//         console.log("Caution");
+//         break;
+//     case "green":
+//         console.log("Go");
+//         break;
+//     default:
+//         console.log("Unknown color");
+// }
+
+// for (let i = 0; i < 5; i++) {
+//     console.log(i); // Prints 0, 1, 2, 3, 4
+// }
+
+// let fruits = ["apple", "banana", "orange"];
+// for (let fruit of fruits) {
+//     console.log(fruit); // Prints "apple", "banana", "orange"
+// }
+
+// for (let i = 0; i < 5; i++) {
+//     if (i === 3) break; // Stops the loop when i is 3
+//     console.log(i); // Prints 0, 1, 2
+// }
+
+// try {
+//     let result;
+//     // throw "An error occurred.";
+// } catch (error) {
+//     console.log("An error occurred: ", error);
+// } finally {
+//     console.log("This runs regardless of success or error.");
+// }
+
+
+// Functions in JavaScript
+
+// const hello = () => {
+//     console.log("Hello");
+// }
+
+// hello();
+
+// const add = (a, b) => {
+//     return a + b;
+// }
+
+// console.log(add(1, 2)); // 3
+
+// Encapsulation
+// const person = {
+//     name: "Kevin",
+//     age: 24,
+//     greet () {
+//         return "Hello, my name is " + this.name;
+//     }
+// }
+
+// console.log(person.greet()); // Hello, my name is Kevin
+
+// Classes
+
+// class Hello {
+    
+//     constructor(name) {
+//         this.name = name;
+//     }
+
+//     greet() {
+//         return "Hello, my name is " + this.name;
+//     }
+// }
+
+// const kevin = new Hello("Kevin");
+// console.log(kevin.greet())
+
+// const readline = require('readline');
+
+// const rl = readline.createInterface({
+//     input: process.stdin,
+//     output: process.stdout
+// });
+
+// rl.question("Im asking something...", (answer) => { console.log(`This is your answer ${answer}`)})
+
+
+class Superhero {
+    constructor(name, power, age) {
+        this.name = name;
+        this.power = power;
+        this.age = age;
+    }
+
+    describe() {
+        console.log(
+            `Superhero: ${this.name}, Power: ${this.power}, Age: ${this.age}`
+        );
+    }
+}
+
+function createSuperHero () {
+    rl.question("What is your superhero name? ", (nameIn) => {
+        rl.question("What is your superpower? ", (powerIn) => {
+            rl.question("What is your age? ", (ageIn) => {
+                const hero = new Superhero(nameIn, powerIn, ageIn);
+                hero.describe();
+                rl.close();
+            });
+        });
+    });
+}
+
+createSuperHero();
