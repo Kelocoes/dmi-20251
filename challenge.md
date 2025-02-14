@@ -7,7 +7,7 @@ Un escalador está comenzando a practicar en un muro de escalada. El muro tiene 
 
 ### Ejemplo 1
 - **Entrada:** `[2, 5, 4, 6, 8]`
-- **Salida:** `3` (Debe saltar una altura de 3 entre los agarres 0 y 1)
+- **Salida:** `2` (Debe saltar una altura de 3 entre los agarres 0 y 2)
 
 ### Ejemplo 2
 - **Entrada:** `[1, 3, 7, 10]`
@@ -112,7 +112,7 @@ Un corrector de textos necesita un programa que cuente el número de palabras en
 
 ### Ejemplo 1
 - **Entrada:** `"Este es un texto de ejemplo"`
-- **Salida:** `5`
+- **Salida:** `6`
 
 ### Ejemplo 2
 - **Entrada:** `"Hola, ¿cómo estás?"`
