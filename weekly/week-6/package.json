@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc --noEmit false",
-    "start": "live-server --port=3000 --host=localhost --open=/public/index.html --watch=dist",
+    "build": "webpack --watch --mode=production",
+    "start": "serve",
     "lint": "eslint src/ --ext .ts,.js --report-unused-disable-directives",
     "lint:fix": "eslint src/ --ext .ts,.js --report-unused-disable-directives --fix",
     "prepare": "husky"
@@ -21,6 +21,8 @@
     "globals": "^16.0.0",
     "husky": "^9.1.7",
     "live-server": "^1.2.2",
+    "serve": "^14.2.4",
+    "ts-loader": "^9.5.2",
     "typescript": "^5.8.2",
     "typescript-eslint": "^8.26.0"
   }
