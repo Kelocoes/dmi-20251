@@ -98,3 +98,8 @@ function obtenerEstado(codigo) {
 ### Requisitos:
 - Crea un alias de tipo `Estado` que permita los valores: "Éxito", "No encontrado" y "Error desconocido".
 - Asegura que la función `obtenerEstado` retorne uno de esos tres valores posibles utilizando tipos de unión.
+
+
+### Páginas que podrían ser útiles para practicar
+- https://typescript-exercises.github.io/
+- https://www.geeksforgeeks.org/typescript-exercise/

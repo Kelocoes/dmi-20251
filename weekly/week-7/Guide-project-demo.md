@@ -51,17 +51,33 @@ Aquí encontrarás los pasos para crear el proyecto de project-demo el cual busc
     ```
         node_modules
     ```
+
+    6.6 Crea la carpeta public y dentro de ella crea un archivo index.html con el siguiente contenido:
+    ```html
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Project Demo</title>
+    </head>
+    <body>
+        <script type="module" src="/bundle.js"></script>
+    </body>
+    </html>
+    ```
 7. Modifica el archivo `package.json` para agregar los siguientes scripts:
-```json
-    "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode=production",
-    "start": "webpack serve --mode=development",
-    "lint": "eslint src/ --ext .ts,.js --report-unused-disable-directives",
-    "lint:fix": "eslint src/ --ext .ts,.js --report-unused-disable-directives --fix",
-    "prepare": "husky"
-    },
-```
+    ```json
+        "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "webpack --mode=production",
+        "start": "webpack serve --mode=development",
+        "lint": "eslint src/ --ext .ts,.js --report-unused-disable-directives",
+        "lint:fix": "eslint src/ --ext .ts,.js --report-unused-disable-directives --fix",
+        "prepare": "husky"
+        },
+    ```
     7.1 Además de eso agrega el atributo `"type": "module"` en el archivo `package.json` para habilitar el uso de módulos ES6.
 8. Instalar la dependencia de webpack-cli, webpack-dev-server y ts-loader
     ```bash
@@ -96,26 +112,18 @@ Aquí encontrarás los pasos para crear el proyecto de project-demo el cual busc
     };
     ```
 
-10. Crea la carpeta public y dentro de ella crea un archivo index.html con el siguiente contenido:
-    ```html
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Project Demo</title>
-    </head>
-    <body>
-        <script type="module" src="/bundle.js"></script>
-    </body>
-    </html>
-    ```
-11. Escribe un console.log en el archivo `src/index.ts` para verificar que todo está funcionando correctamente.
-    11.1 Ejecuta el comando `npm start` para iniciar el servidor de desarrollo.
-    11.2 Accede a `http://localhost:8080` en tu navegador para ver el mensaje de log.
-12. ¡Listo! Has creado un proyecto de TypeScript con linting y pre-commit hooks configurados.
+10. Escribe un console.log en el archivo `src/index.ts` para verificar que todo está funcionando correctamente.
+    10.1 Ejecuta el comando `npm start` para iniciar el servidor de desarrollo.
+    10.2 Accede a `http://localhost:8080` en tu navegador para ver el mensaje de log.
+11. ¡Listo! Has creado un proyecto de TypeScript con linting y pre-commit hooks configurados.
 Para cancelar la ejecución de la aplicación presiona `Ctrl + C` en la terminal.
+
+
+
+
+
+
+
 
 ## Pasos extra
 
