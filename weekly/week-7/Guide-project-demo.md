@@ -2,27 +2,27 @@ Aquí encontrarás los pasos para crear el proyecto de project-demo el cual busc
 
 ## Pasos
 
-1. Crea una carpeta para el proyecto y entra en ella.
-    1.1 Ejecuta el comando `mkdir project-demo` para crear la carpeta. (También puede crearla manualmente).
+1. Crea una carpeta para el proyecto y entra en ella. \
+    1.1 Ejecuta el comando `mkdir project-demo` para crear la carpeta. (También puede crearla manualmente). \
     1.2 Ejecuta el comando `cd project-demo` para entrar en la carpeta.
-2. Inicializa el proyecto de Node.js.
-    2.1 Ejecuta el comando `npm init -y` para inicializar el proyecto.
-3. Opcional: Crear un repositorio de git.
-    3.1 Ejecuta el comando `git init` para inicializar un repositorio de git.
-    3.2 Ejecuta el comando `git remote add origin <url>` para agregar un repositorio remoto.
-    3.3 Ejecuta el comando `git add .` para agregar todos los archivos al stage.
-    3.4 Ejecuta el comando `git commit -m "Initial commit"` para hacer el primer commit.
-    3.5 Ejecuta el comando `git push -u origin master` para subir los cambios al repositorio remoto.
-4. Instala TypeScript como dependencia de desarrollo.
-    4.1 Ejecuta el comando `npm install typescript --save-dev` para instalar TypeScript.
-    4.2 Ejecuta el comando `npx tsc --init` para generar el archivo de configuración de TypeScript.
-5. Instala husky y eslint como dependencias de desarrollo.
-    5.1 Ejecuta el comando `npm install husky eslint --save-dev` para instalar husky y eslint.
-    5.2 Ejecuta el comando `npx eslint --init` para generar el archivo de configuración de eslint.
-    5.3 Ejecuta el comando `npx husky init` para generar el archivo de configuración de husky.
-6. Crea los siguientes archivos y carpetas:
-    6.1 Crea una carpeta `src` para el código fuente.
-    6.2 Crea un archivo `src/index.ts` con el siguiente contenido:
+2. Inicializa el proyecto de Node.js. \
+    2.1 Ejecuta el comando `npm init -y` para inicializar el proyecto. 
+3. Opcional: Crear un repositorio de git. \
+    3.1 Ejecuta el comando `git init` para inicializar un repositorio de git. \
+    3.2 Ejecuta el comando `git remote add origin <url>` para agregar un repositorio remoto. \
+    3.3 Ejecuta el comando `git add .` para agregar todos los archivos al stage. \
+    3.4 Ejecuta el comando `git commit -m "Initial commit"` para hacer el primer commit. \
+    3.5 Ejecuta el comando `git push -u origin master` para subir los cambios al repositorio remoto. 
+4. Instala TypeScript como dependencia de desarrollo. \
+    4.1 Ejecuta el comando `npm install typescript --save-dev` para instalar TypeScript. \
+    4.2 Ejecuta el comando `npx tsc --init` para generar el archivo de configuración de TypeScript. 
+5. Instala husky y eslint como dependencias de desarrollo. \
+    5.1 Ejecuta el comando `npm install husky eslint --save-dev` para instalar husky y eslint. \
+    5.2 Ejecuta el comando `npx eslint --init` para generar el archivo de configuración de eslint. \
+    5.3 Ejecuta el comando `npx husky init` para generar el archivo de configuración de husky. 
+6. Crea los siguientes archivos y carpetas: \
+    6.1 Crea una carpeta `src` para el código fuente. \
+    6.2 Crea un archivo `src/index.ts` con el siguiente contenido: 
     ```typescript
     console.log("Hello, TypeScript!");
     ```
@@ -127,26 +127,26 @@ Para cancelar la ejecución de la aplicación presiona `Ctrl + C` en la terminal
 
 ## Pasos extra
 
-1. Construcción de un compilado de producción.
-    1.1 Ejecuta el comando `npm run build` para compilar el código en modo de producción.
-    1.2 Verifica que se haya generado un archivo `bundle.js` en la carpeta `dist`.
+1. Construcción de un compilado de producción. \
+    1.1 Ejecuta el comando `npm run build` para compilar el código en modo de producción. \
+    1.2 Verifica que se haya generado un archivo `bundle.js` en la carpeta `dist`. 
 
-2. Linting del código.
-    2.1 Ejecuta el comando `npm run lint` para verificar que el código cumple con las reglas de linting.
-    2.2 Ejecuta el comando `npm run lint:fix` para corregir automáticamente los errores de linting.
+2. Linting del código. \
+    2.1 Ejecuta el comando `npm run lint` para verificar que el código cumple con las reglas de linting. \
+    2.2 Ejecuta el comando `npm run lint:fix` para corregir automáticamente los errores de linting. 
 
-3. Ejecutar solo lo compilado:
-    3.1 Ejecuta el comando `npm run build` para compilar el código en modo de producción.
-    3.2 Copia la información que esté en la carpeta public como el index.html y otros assets.
-    3.2.1 Si no funciona usar `npx webpack serve --mode=production` para ejecutar el servidor de producción.
+3. Ejecutar solo lo compilado: \
+    3.1 Ejecuta el comando `npm run build` para compilar el código en modo de producción. \
+    3.2 Copia la información que esté en la carpeta public como el index.html y otros assets. \
+    3.2.1 Si no funciona usar `npx webpack serve --mode=production` para ejecutar el servidor de producción. 
 
-4. Crear carpetas extra de plantilla: 
-    4.1 Parate en la carpeta `src` usando cd src.
-    4.2 Ejecuta el comando `mkdir components` para crear la carpeta de componentes.
-        4.2.1 `mkdir components | mkdir assets | mkdir utils | mkdir services | mkdir pages | mkdir layouts | mkdir enums`
+4. Crear carpetas extra de plantilla:  \
+    4.1 Parate en la carpeta `src` usando cd src. \
+    4.2 Ejecuta el comando `mkdir components` para crear la carpeta de componentes. \
+        4.2.1 `mkdir components | mkdir assets | mkdir utils | mkdir services | mkdir pages | mkdir layouts | mkdir enums` 
 
-5. Configuraciones adicionales del archivo eslint (Opcionales)
-    5.1 Modifica el archivo `eslint.config.mjs` para agregar reglas personalizadas.
+5. Configuraciones adicionales del archivo eslint (Opcionales) \
+    5.1 Modifica el archivo `eslint.config.mjs` para agregar reglas personalizadas. 
     ```json
     "rules": {
         "max-len": ["error", { "code": 250 }],
