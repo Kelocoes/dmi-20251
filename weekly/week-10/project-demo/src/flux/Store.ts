@@ -15,43 +15,49 @@ type Listener = (state: State) => void;
 
 
 class Store {
-    private _count: number;
-    private _user: User | null;
+    private _myState: State = {
+        count: 0,
+        user: null,
+    }
     // Los componentes
     private _listeners: Listener[] = [];
 
     constructor() {
-        this._count = 0;
-        this._user = null;
         AppDispatcher.register(this._handleActions.bind(this)); // Bind the context of this method to the Store instance
     }
 
     getState() {
-        return {
-            count: this._count,
-            user: this._user,
-        };
+        return this._myState;
     }
 
     _handleActions(action: Action): void {
         switch (action.type) {
             case CounterActionTypes.INCREMENT_COUNT:
                 if (typeof action.payload === 'number') {
-                    this._count += action.payload;
+                    this._myState = {
+                        ...this._myState,
+                        count: this._myState.count + action.payload,
+                    }
                 }
                 this._emitChange();
                 break;
 
             case CounterActionTypes.DECREMENT_COUNT:
                 if (typeof action.payload === 'number') {
-                    this._count -= action.payload;
+                    this._myState = {
+                        ...this._myState,
+                        count: this._myState.count - action.payload,
+                    }
                 }
                 this._emitChange();
                 break;
 
             case UserActionTypes.SAVE_USER:
                 if (typeof action.payload === 'object') {
-                    this._user = action.payload as User;
+                    this._myState = {
+                        ...this._myState,
+                        user: action.payload as User,
+                    }
                 }
                 this._emitChange();
                 break;
