@@ -57,6 +57,96 @@ El atributo `aria-required` indica que este campo es obligatorio.
 
 ## Responsive
 
+
+### Diseño Responsive
+
+El diseño responsive permite que las aplicaciones web se adapten a diferentes tamaños de pantalla y dispositivos, mejorando la experiencia del usuario. Esto se logra utilizando técnicas como media queries, unidades relativas y diseño flexible.
+
+#### Uso de Media Queries
+Las media queries permiten aplicar estilos CSS específicos según el tamaño de la pantalla.
+
+**Ejemplo:**
+```css
+/* Estilo para pantallas pequeñas */
+@media (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+}
+
+/* Estilo para pantallas medianas */
+@media (min-width: 601px) and (max-width: 1024px) {
+    body {
+        font-size: 16px;
+    }
+}
+
+/* Estilo para pantallas grandes */
+@media (min-width: 1025px) {
+    body {
+        font-size: 18px;
+    }
+}
+```
+
+#### Diseño Flexible con Unidades Relativas
+Utiliza unidades relativas como `%`, `em`, `rem` o `vw/vh` para que los elementos se ajusten dinámicamente.
+
+**Ejemplo:**
+```css
+.container {
+    width: 80%; /* Se ajusta al 80% del ancho del contenedor padre */
+    padding: 2rem; /* Espaciado relativo al tamaño de fuente raíz, 2 rem es 32px si el tamaño de fuente raíz es 16px */
+}
+```
+
+#### Uso de Flexbox y Grid
+Flexbox y CSS Grid son herramientas poderosas para crear diseños responsivos.
+
+**Ejemplo con Flexbox:**
+```css
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.item {
+    flex: 1 1 300px; /* Se ajusta dinámicamente con un tamaño mínimo de 300px */
+}
+```
+
+**Ejemplo con Grid:**
+```css
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+```
+
+#### Imágenes Responsivas
+Revisa que las imágenes se adapten al tamaño del contenedor.
+
+**Ejemplo:**
+```css
+img {
+    max-width: 100%;
+    height: auto;
+}
+```
+
+**Enlaces relevantes para responsive:**
+
+- [Guía de diseño responsive de MDN](https://www.w3schools.com/css/css3_mediaqueries.asp)
+- [Tailwind](https://tailwindcss.com)
+- [FlexBox CSS Tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+- [Media query CSS Tricks](https://css-tricks.com/a-complete-guide-to-css-media-queries/)
+
+
 ## Flux concept
+
+- [Flux Guía](https://carlosazaustre.es/como-funciona-flux)
+- [Github ](https://github.com/LeiderCalvo/DCA/tree/15_singleSourceOfTruth)
 
 ## Single Source of Truth 
