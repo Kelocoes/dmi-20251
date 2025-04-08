@@ -1,5 +1,7 @@
 import "./card.js"
-import { getData } from "./data.js"
+import { data } from "./data.js"
+import { apiToDogs } from "./src/adapters/dog.js";
+import { getApiDogs } from "./src/services/dog.js";
 
 class AppContainer extends HTMLElement {
     constructor() {
@@ -7,9 +9,13 @@ class AppContainer extends HTMLElement {
         this.attachShadow({ mode: "open" })
     }
 
-    connectedCallback() {
+    async connectedCallback() {
 
-        const data = getData()
+        const apiResponse = await getApiDogs()
+        const dogs = apiToDogs(apiResponse)
+        console.log("perritos", dogs);
+
+
 
         this.shadowRoot.innerHTML = `
             <p>hola mundo</p>
