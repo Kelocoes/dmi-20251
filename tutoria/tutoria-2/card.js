@@ -35,7 +35,7 @@ class AppCard extends HTMLElement {
             </svg>`
         }
 
-        this.shadowRoot.innerHTML = `<div style="margin: 100px 20px;">
+        this.shadowRoot.innerHTML = `<div style="margin: 100px 20px; position: relative;">
             <p>${this.id}</p>
             <p>${this.destino}</p>
             <p>${this.duracion}</p>
@@ -48,6 +48,13 @@ class AppCard extends HTMLElement {
             <p>${this.alojamiento}</p>
             <p>${this.guia_incluido}</p>
             <button>${this.reservado === "true" ? "reservado" : "no reservado"}</button>
+            
+            ${this.reservado === "true" ? `<article
+        style="background-color: aqua; position: absolute; color: #00f; top: 0; bottom: 0; left:200px; right: 0; width: 0; height: 100px;">
+        soy un
+        p</article>` : ""}
+            
+           
         </div>`
 
         const btn = this.shadowRoot.querySelector("button")
@@ -56,7 +63,7 @@ class AppCard extends HTMLElement {
             this.setAttribute("reservado", this.reservado === "true" ? "false" : "true")
             btn.innerText = btn.innerText === "no reservado" ? "reservado" : "no reservado"
 
-            // this.render()
+            this.render()
         })
     }
 
