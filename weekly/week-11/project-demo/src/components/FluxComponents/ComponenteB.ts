@@ -1,8 +1,8 @@
-import { CounterActions, UserActions } from '../flux/Actions';
-import { State, store } from '../flux/Store';
+import { CounterActions, UserActions } from '../../flux/Actions';
+import { State, store } from '../../flux/Store';
 
 
-class ComponenteC extends HTMLElement {    
+class ComponenteB extends HTMLElement {    
     connectedCallback() {
         store.subscribe((state: State) => {this.handleChange(state)});
         this.render();
@@ -15,7 +15,7 @@ class ComponenteC extends HTMLElement {
     render(state = store.getState()) {
         this.innerHTML = `
             <div>
-                <h3>Mi componente C</h3>
+                <h3>Mi componente B</h3>
                 <p> Información sobre el usuario </p>
                 <p> Nombre: ${state.user?.name} </p>
                 <p> Edad: ${state.user?.age} </p>
@@ -34,10 +34,10 @@ class ComponenteC extends HTMLElement {
         });
 
         this.querySelector('#saveUser')?.addEventListener('click', () => {
-            const user = { name: 'Pablo', age: 5 };
+            const user = { name: 'Kevin', age: 100 };
             UserActions.saveUser(user);
         });
     }
 }
 
-export default ComponenteC;
+export default ComponenteB;
