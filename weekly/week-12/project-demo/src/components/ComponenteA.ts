@@ -1,7 +1,7 @@
 import { CounterActions, UserActions } from '../flux/Actions';
 import { State, store } from '../flux/Store';
 
-class ComponenteA extends HTMLElement {    
+class ComponenteA extends HTMLElement {
     connectedCallback() {
         store.subscribe((state: State) => {this.handleChange(state)});
         this.attachShadow({ mode: 'open' });

@@ -62,6 +62,9 @@ class Store {
                 this._emitChange();
                 break;
         }
+
+        // Persistir el estado en localStorage
+        this.persist();
     }
 
     private _emitChange(): void {
@@ -80,6 +83,18 @@ class Store {
     // Permite quitar la suscripción
     unsubscribe(listener: Listener): void {
         this._listeners = this._listeners.filter(l => l !== listener);
+    }
+
+    persist(): void {
+        localStorage.setItem('flux:state', JSON.stringify(this._myState));
+    }
+
+    load(): void {
+        const persistedState = localStorage.getItem('flux:state');
+        if (persistedState) {
+            this._myState = JSON.parse(persistedState);
+            this._emitChange(); // Emitir el nuevo estado
+        }
     }
 
 }
