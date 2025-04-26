@@ -1,4 +1,5 @@
 package com.example.demo.controller;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +20,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -27,6 +31,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/products")
 public class ProductsController {
+
+    private static final Logger logger = LoggerFactory.getLogger(ProductsController.class);
 
     @Autowired
     private IProductsRepository productsRepository;
@@ -38,7 +44,8 @@ public class ProductsController {
 
     @GetMapping
     public ResponseEntity<List<Products>> getProductsByStudentName(@RequestParam String studentName) {
-        System.out.println("Date: " + new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(new Date()) + " - Student Name: " + studentName + " - Method: GET");
+        logger.info("Date: {} - Student Name: {} - Method: GET", 
+                new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(new Date()), studentName);
         return ResponseEntity.ok(productsRepository.findByStudentName(studentName));
     }
 
@@ -50,7 +57,8 @@ public class ProductsController {
                 product.getPrice(), 
                 product.getQuantity(), 
                 product.getImage());
-        System.out.println("Date: " + new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(new Date()) + " - Student Name: " + studentName + " - Method: POST");
+        logger.info("Date: {} - Student Name: {} - Method: POST", 
+                new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(new Date()), studentName);
         return ResponseEntity.status(HttpStatus.CREATED).body(new MessageResponse("Product created"));
     }
 

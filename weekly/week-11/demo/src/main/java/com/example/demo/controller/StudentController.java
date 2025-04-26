@@ -13,22 +13,27 @@ import com.example.demo.model.Student;
 import com.example.demo.repository.IProductsRepository;
 import com.example.demo.repository.IStudentRepository;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 @RestController
 @RequestMapping("/students")
 @CrossOrigin(origins = "*")
 public class StudentController {
-    
+
+    private static final Logger logger = LoggerFactory.getLogger(StudentController.class);
+
     @Autowired
     IStudentRepository studentRepository;
 
     @Autowired
     IProductsRepository productsRepository;
-    
+
     @PostMapping("/register")
     public ResponseEntity<Student> registerStudent(@RequestParam String studentName) {
         Student existingStudent = studentRepository.findByName(studentName).orElse(null);
         if (existingStudent != null) {
-            System.out.println("Student already registered: " + studentName);
+            logger.info("Student already registered: {}", studentName);
             return ResponseEntity.badRequest().body(null);
         }
 
@@ -57,8 +62,8 @@ public class StudentController {
             (long) (Math.random() * 1000), 
             (long) (Math.random() * 1000), 
             "https://picsum.photos/300/300");
-        
-        System.out.println("Student registered: " + studentSaved.getName());
+
+        logger.info("Student registered: {}", studentSaved.getName());
         return ResponseEntity.status(HttpStatus.CREATED).body(studentSaved);
     }
 }

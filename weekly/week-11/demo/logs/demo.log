@@ -1,0 +1,49 @@
+2025-04-25T15:17:49.230-05:00  INFO 18780 --- [demo] [main] com.example.demo.DemoApplication         : Starting DemoApplication using Java 17.0.12 with PID 18780 (C:\Users\GlobE\Desktop\Maestria\Diseñando con Algoritmos\dmi-20251\weekly\week-11\demo\build\classes\java\main started by GlobE in C:\Users\GlobE\Desktop\Maestria\Diseñando con Algoritmos\dmi-20251\weekly\week-11\demo)
+2025-04-25T15:17:49.232-05:00  INFO 18780 --- [demo] [main] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-04-25T15:17:50.186-05:00  INFO 18780 --- [demo] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-25T15:17:50.251-05:00  INFO 18780 --- [demo] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 55 ms. Found 4 JPA repository interfaces.
+2025-04-25T15:17:50.876-05:00  INFO 18780 --- [demo] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-04-25T15:17:50.891-05:00  INFO 18780 --- [demo] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-04-25T15:17:50.891-05:00  INFO 18780 --- [demo] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-04-25T15:17:50.965-05:00  INFO 18780 --- [demo] [main] o.a.c.c.C.[.[localhost].[/dca/kevin]     : Initializing Spring embedded WebApplicationContext
+2025-04-25T15:17:50.966-05:00  INFO 18780 --- [demo] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1691 ms
+2025-04-25T15:17:51.116-05:00  INFO 18780 --- [demo] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-25T15:17:51.187-05:00  INFO 18780 --- [demo] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-04-25T15:17:51.235-05:00  INFO 18780 --- [demo] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-04-25T15:17:51.603-05:00  INFO 18780 --- [demo] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-25T15:17:51.634-05:00  INFO 18780 --- [demo] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-04-25T15:17:51.862-05:00  INFO 18780 --- [demo] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:demo user=SA
+2025-04-25T15:17:51.864-05:00  INFO 18780 --- [demo] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-04-25T15:17:51.937-05:00  INFO 18780 --- [demo] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-25T15:17:53.022-05:00  INFO 18780 --- [demo] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-25T15:17:53.082-05:00  INFO 18780 --- [demo] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-25T15:17:53.329-05:00  INFO 18780 --- [demo] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-04-25T15:17:53.858-05:00  WARN 18780 --- [demo] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-25T15:17:53.888-05:00  WARN 18780 --- [demo] [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: a69946b6-a824-4b8c-aad6-d15f3fb351d4
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-04-25T15:17:53.913-05:00  INFO 18780 --- [demo] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-04-25T15:17:54.195-05:00  INFO 18780 --- [demo] [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-04-25T15:17:54.348-05:00  INFO 18780 --- [demo] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:demo'
+2025-04-25T15:17:54.469-05:00  INFO 18780 --- [demo] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/dca/kevin'
+2025-04-25T15:17:54.479-05:00  INFO 18780 --- [demo] [main] com.example.demo.DemoApplication         : Started DemoApplication in 5.798 seconds (process running for 6.196)
+2025-04-25T15:18:23.477-05:00  INFO 18780 --- [demo] [http-nio-8080-exec-2] o.a.c.c.C.[.[localhost].[/dca/kevin]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-25T15:18:23.478-05:00  INFO 18780 --- [demo] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-04-25T15:18:23.481-05:00  INFO 18780 --- [demo] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-04-25T15:18:23.617-05:00  INFO 18780 --- [demo] [http-nio-8080-exec-2] c.e.demo.controller.ProductsController   : Date: 25-04-2025 15:18:23 - Student Name: a - Method: GET
+2025-04-25T16:24:31.903-05:00  WARN 18780 --- [demo] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m8s863ms997µs200ns).
+2025-04-25T16:52:27.503-05:00  WARN 18780 --- [demo] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=27m55s601ms182µs).
+2025-04-25T17:40:30.262-05:00  WARN 18780 --- [demo] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=39m32s627ms693µs300ns).
+2025-04-25T17:44:07.385-05:00  WARN 18780 --- [demo] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m7s110ms693µs400ns).
+2025-04-25T17:45:32.525-05:00  INFO 18780 --- [demo] [http-nio-8080-exec-3] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 655 ms
+2025-04-25T19:37:42.405-05:00  WARN 18780 --- [demo] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h47m34s929ms575µs200ns).
