@@ -16,6 +16,8 @@ class ComponenteB extends HTMLElement {
     render(state = store.getState()) {
         if (!this.shadowRoot) return;
 
+        // Cache only: Solo leo lo que esté en el store. Si no hay, no pido nada.
+
         this.shadowRoot.innerHTML = `
             <style>
                 div {

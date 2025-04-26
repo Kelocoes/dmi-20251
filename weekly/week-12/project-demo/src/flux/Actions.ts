@@ -1,4 +1,5 @@
 import { AppDispatcher } from './Dispatcher';
+import { State } from './Store';
 
 export const CounterActionTypes = {
     INCREMENT_COUNT: 'INCREMENT_COUNT',
@@ -8,6 +9,19 @@ export const CounterActionTypes = {
 export const UserActionTypes = {
     SAVE_USER: 'SAVE_USER',
 };
+
+export const StoreActionTypes = {
+    LOAD_STATE: 'LOAD_STATE',
+};
+
+export const StoreActions = {
+    loadState: (state: State) => {
+        AppDispatcher.dispatch({
+            type: StoreActionTypes.LOAD_STATE,
+            payload: state,
+        });
+    },
+}
 
 export const CounterActions = {
     increment: (value: number) => {

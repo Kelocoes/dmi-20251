@@ -9,12 +9,29 @@ class ComponenteC extends HTMLElement {
         this.render();
     }
 
+
     handleChange(state: State) {
         this.render(state);
     }
 
     render(state = store.getState()) {
         if (!this.shadowRoot) return;
+
+        // Network first: Siempre intento primero ir a la red. Si falla, uso lo que tenga en el store.
+        // Network only: Ignoro lo que haya en el store. Siempre voy a la red y actualizo el store.
+        // Ejemplo de implementación
+        // fetchStateMockLocal()
+        //     .then((data) => {
+        //         const stateFromApi: State = data;
+        //         if (isStateValid(stateFromApi)) {
+        //             StoreActions.loadState(stateFromApi);
+        //         } else {
+        //             console.warn('Estado de la API no válido, usando estado del store.');
+        //         }
+        //     })
+        //     .catch((error) => {
+        //         console.error('Error fetching data:', error);
+        //     });
 
         this.shadowRoot.innerHTML = `
             <style>

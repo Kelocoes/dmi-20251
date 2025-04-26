@@ -1,5 +1,7 @@
-import { CounterActions, UserActions } from '../flux/Actions';
+import { CounterActions, StoreActions, UserActions } from '../flux/Actions';
 import { State, store } from '../flux/Store';
+import { fetchStateMockLocal } from '../services/ApiMock';
+import { isStateValid } from '../utils/StateCheck';
 
 class ComponenteA extends HTMLElement {
     connectedCallback() {
@@ -14,6 +16,19 @@ class ComponenteA extends HTMLElement {
 
     render(state = store.getState()) {
         if (!this.shadowRoot) return;
+
+        // Cache first: Primero miro si en el store ya hay datos. Si no, pido a la API y actualizo el store."
+        // Qué pasa si quito el !, o sea que siempre hago la llamada a la API?
+        if (!isStateValid(state)) {
+            // Then check API
+            fetchStateMockLocal()
+                .then((data) => {
+                    StoreActions.loadState(data);
+                })
+                .catch((error) => {
+                    console.error('Error fetching data:', error);
+                });
+        }
 
         this.shadowRoot.innerHTML = `
             <style>

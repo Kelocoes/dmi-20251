@@ -1,5 +1,5 @@
 import { AppDispatcher, Action } from './Dispatcher';
-import { CounterActionTypes, UserActionTypes } from './Actions';
+import { CounterActionTypes, StoreActionTypes, UserActionTypes } from './Actions';
 
 export type User = {
     name: string;
@@ -57,6 +57,15 @@ class Store {
                     this._myState = {
                         ...this._myState,
                         user: action.payload as User,
+                    }
+                }
+                this._emitChange();
+                break;
+            case StoreActionTypes.LOAD_STATE:
+                if (typeof action.payload === 'object') {
+                    this._myState = {
+                        ...this._myState,
+                        ...action.payload,
                     }
                 }
                 this._emitChange();
