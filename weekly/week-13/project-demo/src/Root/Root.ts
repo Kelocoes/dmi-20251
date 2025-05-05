@@ -16,16 +16,20 @@ class Root extends HTMLElement {
 
         this.shadowRoot.innerHTML = `
             <style>
-                div {
-                    display: grid;
-                    grid-template-columns: repeat(3, 1fr);
-                    gap: 20px;
-                }
+            .container {
+                display: flex;
+                align-items: center;
+            }
+            .divider {
+                width: 1px;
+                background-color: #ccc;
+                margin: 0 10px;
+            }
             </style>
-            <div>
-            <custom-element-a></custom-element-a>
-            <custom-element-b></custom-element-b>
-            <custom-element-c></custom-element-c>
+            <div class="container">
+            <firebase-component></firebase-component>
+            <div class="divider"></div>
+            <supabase-component></supabase-component>
             </div>
         `;
     }
