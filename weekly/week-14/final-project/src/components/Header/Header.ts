@@ -1,3 +1,5 @@
+import { UserActions } from "../../flux/Actions";
+import { auth } from "../../services/Firebase/FirebaseConfig";
 import Navigate from "../../utils/Navigate";
 
 class Header extends HTMLElement {
@@ -45,6 +47,7 @@ class Header extends HTMLElement {
                 <div class="buttons">
                     <button id="login" navigate-to="/login">Iniciar sesión</button>
                     <button id="register" navigate-to="/register">Registrarse</button>
+                    <button id="logout" navigate-to="/">Cerrar sesión</button>
                 </div>
             </div>
         `;
@@ -61,6 +64,17 @@ class Header extends HTMLElement {
         const landing = this.shadowRoot!.querySelector('#landing');
         landing?.addEventListener('click', () => {
             Navigate('/');
+        });
+
+        const logout = this.shadowRoot!.querySelector('#logout');
+        logout?.addEventListener('click', () => {
+            UserActions.logout();
+            localStorage.clear();
+            auth.signOut().then(() => {
+                console.log('Sesión cerrada');
+            }).catch((error) => {
+                console.error('Error al cerrar sesión:', error);
+            });
         });
     }
 }

@@ -1,16 +1,23 @@
+import { State, store } from "../flux/Store";
+
 class DashboardPage extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });
+        store.subscribe((state: State) => {this.render(state)});
     }
 
     connectedCallback() {
         this.render();
     }
 
-    render() {
+    render(state = store.getState()) {
+        if (!state || !state.isAuthenticated) {
+            this.shadowRoot!.innerHTML = `<h1>Acceso denegado</h1>`;
+            return;
+        }
         if (!this.shadowRoot) return;
-
+        console.log('Holi');
         this.shadowRoot.innerHTML = `
             <style>
                 #dashboard-page {

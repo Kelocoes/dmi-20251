@@ -1,3 +1,6 @@
+import { registerUser } from "../services/Firebase/FirebaseConfig";
+import Navigate from "../utils/Navigate";
+
 class RegisterPage extends HTMLElement {
     constructor() {
         super();
@@ -86,8 +89,8 @@ class RegisterPage extends HTMLElement {
             <form id="register-form">
                 <h2>Registro</h2>
                 <div class="form-group">
-                    <label for="username">Nombre de usuario</label>
-                    <input type="text" id="username" name="username" required>
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" name="email" required>
                 </div>
                 <div class="form-group">
                     <label for="firstName">Nombre</label>
@@ -124,7 +127,7 @@ class RegisterPage extends HTMLElement {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             const data = {
-                username: form.username.value,
+                email: form.email.value,
                 firstName: form.firstName.value,
                 lastName: form.lastName.value,
                 dob: form.dob.value,
@@ -132,12 +135,21 @@ class RegisterPage extends HTMLElement {
             };
             console.log('Registro enviado:', data);
 
-            // Puedes emitir un evento aquí si lo necesitas
-            this.dispatchEvent(new CustomEvent('register', {
-                detail: data,
-                bubbles: true,
-                composed: true,
-            }));
+            registerUser(data.email, data.password)
+                .then((response) => {
+                    if (!response.isRegistered) {
+                        console.error('Error al registrar el usuario:', response.error);
+                        alert('Error al registrar el usuario. Por favor, verifica tus datos.');
+                        return;
+                    }
+                    alert('Usuario registrado exitosamente.');
+                    console.log('Usuario registrado:', response);
+                    Navigate('/login');
+                })
+                .catch((error) => {
+                    console.error('Error al registrar el usuario:', error);
+                    alert('Ocurrió un error. Por favor, intenta nuevamente.');
+                });
         });
     }
 }

@@ -1,3 +1,4 @@
+import { UserActions } from "../flux/Actions";
 import { State, store } from "../flux/Store";
 
 class Root extends HTMLElement {
@@ -9,6 +10,8 @@ class Root extends HTMLElement {
     }
 
     connectedCallback() {
+        store.load();
+        UserActions.checkAuth();
         this.render();
         this.handleRouteChange();
     }

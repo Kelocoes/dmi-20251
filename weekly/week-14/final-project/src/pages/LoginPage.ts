@@ -1,3 +1,7 @@
+import { UserActions } from "../flux/Actions";
+import { loginUser } from "../services/Firebase/FirebaseConfig";
+import Navigate from "../utils/Navigate";
+
 class LoginPage extends HTMLElement {
     constructor() {
         super();
@@ -86,8 +90,8 @@ class LoginPage extends HTMLElement {
             <form id="login-form">
                 <h2>Login</h2>
                 <div class="form-group">
-                    <label for="username">Nombre de usuario</label>
-                    <input type="text" id="username" name="username" placeholder="Ingresa tu nombre de usuario" required>
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" name="email" placeholder="Ingresa tu correo electrónico" required>
                 </div>
                 <div class="form-group">
                     <label for="password">Contraseña</label>
@@ -111,9 +115,26 @@ class LoginPage extends HTMLElement {
 
         form.addEventListener('submit', (e) => {
             e.preventDefault();
-            const username = form.username.value;
+            const email = form.email.value;
             const password = form.password.value;
-            console.log('Login submitted with:', { username, password });
+            console.log('Login submitted with:', { email, password });
+
+            loginUser(email, password)
+                .then((response) => {
+                    if (!response.isLoggedIn || !response.user) {
+                        console.error('Login failed:', response.error);
+                        alert('Login failed. Please check your credentials.');
+                        return;
+                    }
+                    console.log('Login successful:', response.user);
+                    alert('Login successful! Welcome back!');
+                    UserActions.saveUser(response.user);
+                    Navigate('/')
+                })
+                .catch((error) => {
+                    console.error('Error during login:', error);
+                    alert('An error occurred. Please try again.');
+                })
         });
     }
 }

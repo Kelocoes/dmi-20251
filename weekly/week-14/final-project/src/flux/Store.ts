@@ -1,8 +1,12 @@
-import { NavigateActionsType } from './Actions';
+import { User, UserCredential } from 'firebase/auth';
+import { NavigateActionsType, UserActionsType } from './Actions';
 import { AppDispatcher, Action } from './Dispatcher';
+import { auth } from '../services/Firebase/FirebaseConfig';
 
 export type State = {
     currentPath: string;
+    isAuthenticated: boolean;
+    userAuthenticated: UserCredential | User | null;
 };
 
 type Listener = (state: State) => void;
@@ -10,7 +14,9 @@ type Listener = (state: State) => void;
 
 class Store {
     private _myState: State = {
-        currentPath: ''
+        currentPath: '',
+        isAuthenticated: false,
+        userAuthenticated: null
     }
     // Los componentes
     private _listeners: Listener[] = [];
@@ -26,7 +32,7 @@ class Store {
     _handleActions(action: Action): void {
         switch (action.type) {
             case NavigateActionsType.NAVIGATE:
-                if (action.payload?.path) {
+                if (action.payload && 'path' in action.payload) {
                     this._myState = {
                         ...this._myState,
                         currentPath: action.payload.path 
@@ -34,9 +40,48 @@ class Store {
                     this._emitChange();
                 }
                 break;
+            case UserActionsType.SAVE_USER:
+                this._myState = {
+                    ...this._myState,
+                    isAuthenticated: true,
+                    userAuthenticated: action.payload as UserCredential
+                }
+                break;
+            case UserActionsType.CHECK_AUTH:
+                auth.onAuthStateChanged((user) => {
+                    if (user) {
+                        console.log('Entro');
+                        this._myState = {
+                            ...this._myState,
+                            isAuthenticated: true,
+                            userAuthenticated: user,
+                        }
+                    } else {
+                        this._myState = {
+                            ...this._myState,
+                            isAuthenticated: false,
+                            userAuthenticated: null
+                        }
+                    }
+
+                    this._emitChange();
+                    this.persist();
+                });
+                break;
+            case UserActionsType.LOGOUT:
+                auth.signOut().then(() => {
+                    this._myState = {
+                        currentPath: '/',
+                        isAuthenticated: false,
+                        userAuthenticated: null
+                    }
+                    this._emitChange();
+                }).catch((error) => {
+                    console.error('Error al cerrar sesión:', error);
+                });
+                break;
         }
 
-        // Persistir el estado en localStorage
         this.persist();
     }
 
@@ -59,6 +104,7 @@ class Store {
     }
 
     persist(): void {
+        console.log('Persistiendo el estado en localStorage', this._myState);
         localStorage.setItem('flux:state', JSON.stringify(this._myState));
     }
 
