@@ -1,5 +1,5 @@
-import { sendPasswordReset } from "../services/Firebase/FirebaseConfig";
-import { uploadFile } from "../services/Supabase/FileSystemServiceSB";
+// import { sendPasswordReset } from "../services/Firebase/FirebaseConfig";
+// import { uploadFile } from "../services/Supabase/FileSystemServiceSB";
 import Navigate from "../utils/Navigate";
 
 class LandingPage extends HTMLElement {
@@ -50,7 +50,7 @@ class LandingPage extends HTMLElement {
             const file = fileInput.files?.[0];
             if (file) {
                 console.log(file);
-                uploadFile(file)
+                // uploadFile(file)
             } else {
                 console.log('No file selected');
             }
@@ -59,7 +59,7 @@ class LandingPage extends HTMLElement {
         const passwordResetButton = this.shadowRoot!.getElementById('passwordReset') as HTMLButtonElement;
 
         passwordResetButton.addEventListener('click', () => {
-            sendPasswordReset('kevin.rodriguez109@gmail.com')
+            // sendPasswordReset('kevin.rodriguez109@gmail.com')
         });
 
     }
