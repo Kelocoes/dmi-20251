@@ -1,5 +1,0 @@
-#itemList {
-    max-height: 150px; /* Limita la altura para forzar el scroll */
-    overflow-y: scroll; /* Habilita el scroll vertical */
-    border: 1px solid black;
-}
